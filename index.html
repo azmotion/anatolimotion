@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anatoli — Motion Design for Agencies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #181818;
+  --text: #e8e6e1;
+  --text-muted: #8a877f;
+  --text-dim: #5a5850;
+  --accent: #c4ff36;
+  --accent-dim: rgba(196,255,54,0.08);
+  --accent-mid: rgba(196,255,54,0.15);
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --radius: 12px;
+  --font: 'DM Sans', sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+/* Grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  background: rgba(10,10,10,0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-name {
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.3px;
+}
+.nav-name span { color: var(--accent); }
+.nav-cta {
+  font-size: 13px;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 8px 20px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-cta:hover { transform: scale(1.03); opacity: 0.9; }
+
+/* HERO */
+.hero {
+  padding: 160px 0 100px;
+  position: relative;
+}
+.hero-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.2s;
+}
+.hero h1 {
+  font-size: clamp(36px, 5.5vw, 64px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  max-width: 700px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.4s;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text-muted);
+}
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-top: 28px;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.6s;
+}
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 56px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.8s;
+}
+.stat-num {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* SHOWREEL */
+.reel {
+  padding: 20px 0 80px;
+}
+.reel-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+}
+.reel-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.reel-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+.reel-play {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  background: var(--accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.reel-play::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent var(--accent);
+  margin-left: 4px;
+}
+.reel-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 48px;
+  margin-bottom: 12px;
+}
+
+/* ABOUT PHOTO */
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-photo-placeholder {
+  color: var(--text-dim);
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* SECTION TITLES */
+.section-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+.section-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* WHAT YOU GET */
+.services {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 56px;
+}
+.service-card {
+  background: var(--bg2);
+  padding: 32px 28px;
+  transition: background 0.3s;
+}
+.service-card:hover { background: var(--bg3); }
+.service-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.service-card h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.service-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* PACKAGES */
+.packages {
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+.pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+}
+.pkg {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s;
+  position: relative;
+}
+.pkg:hover { border-color: var(--border-hover); }
+.pkg.featured {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(196,255,54,0.03) 0%, var(--bg2) 40%);
+}
+.pkg-badge {
+  position: absolute;
+  top: -10px;
+  left: 28px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 3px 12px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+.pkg-name {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.pkg-tagline {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+.pkg-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.pkg-price {
+  font-family: var(--mono);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.pkg-compare {
+  font-size: 14px;
+  color: var(--text-dim);
+  text-decoration: line-through;
+}
+.pkg-delivery {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+.pkg-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+.pkg-items { flex: 1; }
+.pkg-item {
+  font-size: 14px;
+  color: var(--text);
+  padding: 6px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.pkg-item::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  min-width: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 7px;
+}
+.pkg-item-sub {
+  font-size: 12px;
+  color: var(--text-dim);
+  padding: 0 0 6px 14px;
+}
+.pkg-bottom {
+  margin-top: 28px;
+}
+.pkg-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+.pkg-btn:hover { transform: scale(1.02); }
+.pkg-btn-outline {
+  color: var(--text);
+  border: 1px solid var(--border-hover);
+  background: transparent;
+}
+.pkg-btn-outline:hover { border-color: var(--text-dim); }
+.pkg-btn-fill {
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+}
+.pkg-btn-fill:hover { opacity: 0.9; }
+
+/* RETAINER */
+.retainer {
+  margin-top: 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+.ret-left {}
+.ret-name {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.ret-tagline {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+.ret-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.ret-price {
+  font-family: var(--mono);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.ret-per {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+.ret-note {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+.ret-cta {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+.ret-cta:hover { transform: scale(1.03); }
+.ret-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.perk {
+  background: var(--bg3);
+  border-radius: 8px;
+  padding: 16px;
+}
+.perk-val {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.perk-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ABOUT */
+.about {
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 48px;
+}
+.about-text {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+.about-text p + p { margin-top: 20px; }
+.about-text strong { color: var(--text); font-weight: 500; }
+.cred-list { margin-top: 32px; }
+.cred {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+.cred-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  min-width: 6px;
+}
+.cred-label { color: var(--text-muted); }
+.cred-val { color: var(--text); font-weight: 500; margin-left: auto; white-space: nowrap; }
+
+/* CTA */
+.final-cta {
+  padding: 100px 0 120px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.final-cta h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 500;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+}
+.final-cta p {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+.cta-btn:hover { transform: scale(1.04); }
+.cta-sub {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 16px;
+}
+
+/* FOOTER */
+footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-stats { flex-direction: column; gap: 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .pkg-grid { grid-template-columns: 1fr; }
+  .retainer { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .ret-perks { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-name">anatoli<span>.</span>motion</div>
+    <a href="#contact" class="nav-cta">Get started</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">Motion design for agencies</div>
+    <h1>Your clients need motion.<br>You need <em>someone reliable.</em></h1>
+    <p class="hero-sub">Fixed-price motion design packages built for agencies. Explainers, social content, ad creatives, and ongoing support — fast turnaround, no surprises.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years in motion design</div>
+      </div>
+      <div>
+        <div class="stat-num">1000+</div>
+        <div class="stat-label">Videos delivered</div>
+      </div>
+      <div>
+        <div class="stat-num">5 days</div>
+        <div class="stat-label">Fastest turnaround</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reel">
+  <div class="container">
+    <div class="reel-label">Showreel</div>
+    <div class="reel-wrapper">
+      <!-- Replace with: <iframe src="https://player.vimeo.com/video/YOUR_ID?title=0&byline=0&portrait=0" allowfullscreen></iframe> -->
+      <div class="reel-placeholder">
+        <div class="reel-play"></div>
+        <span>Your Vimeo showreel embed goes here</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="section-tag">What you get</div>
+    <h2 class="section-title">Motion that works as hard as your team.</h2>
+    <p class="section-desc">Everything your clients ask for — without hiring an animator or managing a production house.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">▶</div>
+        <h3>Explainer & product videos</h3>
+        <p>30–60s animated explainers that make complex products feel simple. Storyboard through final delivery.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◈</div>
+        <h3>Social motion content</h3>
+        <p>Animated posts, stories, reels, and GIFs. Platform-native formats that stop the scroll.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Ad creatives</h3>
+        <p>Performance video ads for Meta and TikTok. Hook variants, modular structure, built for testing.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◎</div>
+        <h3>Logo & brand animation</h3>
+        <p>Logo reveals, transitions, bumpers. Motion identity that makes a brand feel alive.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">▤</div>
+        <h3>UI & product animation</h3>
+        <p>App walkthroughs, onboarding flows, micro-interactions. Making interfaces feel polished.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">◉</div>
+        <h3>Data & infographic animation</h3>
+        <p>Kinetic data visualization, animated reports, numbers that tell a story.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="packages" id="packages">
+  <div class="container">
+    <div class="section-tag">Packages</div>
+    <h2 class="section-title">Fixed price. No scope creep. No hourly math.</h2>
+    <p class="section-desc">Pick a package, send a brief, get polished work back. Every package includes source files and is priced so your agency still has healthy margin.</p>
+
+    <div class="pkg-grid">
+
+      <div class="pkg">
+        <div class="pkg-name">Spark</div>
+        <div class="pkg-tagline">Get moving</div>
+        <div class="pkg-price-row">
+          <span class="pkg-price">$750</span>
+          <span class="pkg-compare">$1,500+</span>
+        </div>
+        <div class="pkg-delivery">5 business days</div>
+        <hr class="pkg-divider">
+        <div class="pkg-items">
+          <div class="pkg-item">Logo animation (3–5s reveal)</div>
+          <div class="pkg-item-sub">MP4 + transparent MOV + GIF</div>
+          <div class="pkg-item">3 animated GIFs</div>
+          <div class="pkg-item-sub">Email, social, banner formats</div>
+          <div class="pkg-item">1 short social video (10–15s)</div>
+          <div class="pkg-item">Source files included</div>
+          <div class="pkg-item">1 revision round</div>
+        </div>
+        <div class="pkg-bottom">
+          <a href="#contact" class="pkg-btn pkg-btn-outline">Get started</a>
+        </div>
+      </div>
+
+      <div class="pkg featured">
+        <div class="pkg-badge">Best value</div>
+        <div class="pkg-name">Launch</div>
+        <div class="pkg-tagline">Campaign-ready</div>
+        <div class="pkg-price-row">
+          <span class="pkg-price">$1,800</span>
+          <span class="pkg-compare">$4,000+</span>
+        </div>
+        <div class="pkg-delivery">10 business days</div>
+        <hr class="pkg-divider">
+        <div class="pkg-items">
+          <div class="pkg-item">30–60s explainer or product clip</div>
+          <div class="pkg-item-sub">Storyboard, animation, sound design</div>
+          <div class="pkg-item">5 social motion assets (5–15s)</div>
+          <div class="pkg-item-sub">Posts, stories, reels mix</div>
+          <div class="pkg-item">3 platform resizes included</div>
+          <div class="pkg-item">Source files included</div>
+          <div class="pkg-item">2 revision rounds</div>
+        </div>
+        <div class="pkg-bottom">
+          <a href="#contact" class="pkg-btn pkg-btn-fill">Get started</a>
+        </div>
+      </div>
+
+      <div class="pkg">
+        <div class="pkg-name">Full Motion Kit</div>
+        <div class="pkg-tagline">Launch or rebrand</div>
+        <div class="pkg-price-row">
+          <span class="pkg-price">$3,500</span>
+          <span class="pkg-compare">$7,000+</span>
+        </div>
+        <div class="pkg-delivery">2–3 weeks</div>
+        <hr class="pkg-divider">
+        <div class="pkg-items">
+          <div class="pkg-item">60s hero explainer video</div>
+          <div class="pkg-item-sub">Script consult, storyboard, animation, sound</div>
+          <div class="pkg-item">3 ad creatives (15–30s)</div>
+          <div class="pkg-item-sub">Hook variants, Meta + TikTok formats</div>
+          <div class="pkg-item">5 social motion assets</div>
+          <div class="pkg-item">Motion style guide</div>
+          <div class="pkg-item-sub">Transitions, easing, color usage rules</div>
+          <div class="pkg-item">Source files included</div>
+          <div class="pkg-item">3 revision rounds</div>
+        </div>
+        <div class="pkg-bottom">
+          <a href="#contact" class="pkg-btn pkg-btn-outline">Get started</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="retainer">
+      <div class="ret-left">
+        <div class="section-tag" style="margin-bottom:8px">Ongoing</div>
+        <div class="ret-name">Motion partner retainer</div>
+        <div class="ret-tagline">Your motion design department — without the hire. Mix any deliverables monthly. Priority turnaround. Cancel anytime.</div>
+        <div class="ret-price-row">
+          <span class="ret-price">$2,000</span>
+          <span class="ret-per">/month</span>
+        </div>
+        <div class="ret-note">A part-time motion designer costs $4,000–6,000/mo.</div>
+        <a href="#contact" class="ret-cta">Start a retainer</a>
+      </div>
+      <div class="ret-perks">
+        <div class="perk">
+          <div class="perk-val">~15h</div>
+          <div class="perk-label">Hours per month</div>
+        </div>
+        <div class="perk">
+          <div class="perk-val">48h</div>
+          <div class="perk-label">Turnaround on small tasks</div>
+        </div>
+        <div class="perk">
+          <div class="perk-val">5h</div>
+          <div class="perk-label">Monthly rollover</div>
+        </div>
+        <div class="perk">
+          <div class="perk-val">∞</div>
+          <div class="perk-label">Flexibility — cancel anytime</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <div class="section-tag">About</div>
+    <h2 class="section-title">Not a studio. Not a marketplace.<br>Just a really good motion designer.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I've spent over a decade making things move — <strong>explainer videos, product animations, ad creatives, social content, UI motion</strong>. I've worked agency-side and in-house, on teams of two and teams of twenty.</p>
+        <p>Right now I work with a small number of agencies as their go-to motion person. You send a brief, I send back polished work. Fixed prices, fast turnaround, no project management overhead on your end.</p>
+        <p>I'm based in Europe, which means <strong>competitive rates without compromising quality</strong>. Your margin stays healthy. Your clients get work that looks like it came from a $10K studio.</p>
+      </div>
+      <div>
+        <div class="about-photo">
+          <!-- Replace with: <img src="your-photo.jpg" alt="Anatoli"> -->
+          <div class="about-photo-placeholder">Your photo here<br>(replace with &lt;img&gt; tag)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contact">
+  <div class="container">
+    <h2>Let's make something move.</h2>
+    <p>Send a quick message about your project. I'll reply same day with next steps.</p>
+    <a href="mailto:hello@yourdomain.com" class="cta-btn">hello@yourdomain.com</a>
+    <div class="cta-sub">Or message me on <a href="#" style="color:var(--accent);text-decoration:none">LinkedIn</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Anatoli — Motion Design
+  </div>
+</footer>
+
+</body>
+</html>
