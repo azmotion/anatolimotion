@@ -4,6 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anatoli — Motion Design for Agencies</title>
+<meta name="description" content="Fixed-price motion design packages for agencies. Explainers, social content, ad creatives — fast turnaround, no surprises.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+
+<!-- Open Graph (Facebook, LinkedIn, Slack, iMessage) -->
+<meta property="og:title" content="Anatoli — Motion Design for Agencies">
+<meta property="og:description" content="Your clients need motion. You need someone reliable. Fixed-price packages from $750. Fast turnaround, source files included.">
+<meta property="og:image" content="https://anatolimotion.com/og-image.png">
+<meta property="og:url" content="https://anatolimotion.com">
+<meta property="og:type" content="website">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anatoli — Motion Design for Agencies">
+<meta name="twitter:description" content="Your clients need motion. You need someone reliable. Fixed-price packages from $750.">
+<meta name="twitter:image" content="https://anatolimotion.com/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -76,8 +95,14 @@ nav .container {
   font-weight: 500;
   font-size: 15px;
   letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.nav-name span { color: var(--accent); }
+.nav-logo {
+  height: 24px;
+  width: auto;
+}
 .nav-cta {
   font-size: 13px;
   color: var(--bg);
@@ -128,6 +153,28 @@ nav .container {
   opacity: 0;
   animation: fadeUp 0.6s ease forwards 0.6s;
 }
+.hero-cta {
+  margin-top: 36px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.7s;
+}
+.hero-cta a {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.2s;
+}
+.hero-cta a:hover { transform: scale(1.03); }
+.hero-cta-sub {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 10px;
+}
 .hero-stats {
   display: flex;
   gap: 48px;
@@ -167,37 +214,6 @@ nav .container {
   height: 100%;
   border: none;
 }
-.reel-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: var(--text-dim);
-  font-size: 14px;
-}
-.reel-play {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 1.5px solid var(--accent);
-  background: var(--accent-dim);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s;
-}
-.reel-play::after {
-  content: '';
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 10px 0 10px 18px;
-  border-color: transparent transparent transparent var(--accent);
-  margin-left: 4px;
-}
 .reel-label {
   font-family: var(--mono);
   font-size: 11px;
@@ -224,12 +240,6 @@ nav .container {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.about-photo-placeholder {
-  color: var(--text-dim);
-  font-size: 13px;
-  text-align: center;
-  line-height: 1.5;
 }
 
 /* SECTION TITLES */
@@ -358,11 +368,6 @@ nav .container {
   font-size: 32px;
   font-weight: 700;
   letter-spacing: -1px;
-}
-.pkg-compare {
-  font-size: 14px;
-  color: var(--text-dim);
-  text-decoration: line-through;
 }
 .pkg-delivery {
   font-family: var(--mono);
@@ -528,24 +533,6 @@ nav .container {
 }
 .about-text p + p { margin-top: 20px; }
 .about-text strong { color: var(--text); font-weight: 500; }
-.cred-list { margin-top: 32px; }
-.cred {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 0;
-  border-top: 1px solid var(--border);
-  font-size: 14px;
-}
-.cred-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  min-width: 6px;
-}
-.cred-label { color: var(--text-muted); }
-.cred-val { color: var(--text); font-weight: 500; margin-left: auto; white-space: nowrap; }
 
 /* CTA */
 .final-cta {
@@ -563,6 +550,9 @@ nav .container {
   font-size: 16px;
   color: var(--text-muted);
   margin-bottom: 36px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .cta-btn {
   display: inline-block;
@@ -577,9 +567,16 @@ nav .container {
 }
 .cta-btn:hover { transform: scale(1.04); }
 .cta-sub {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-dim);
-  margin-top: 16px;
+  margin-top: 14px;
+}
+.cta-spots {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
 }
 
 /* FOOTER */
@@ -612,8 +609,8 @@ footer {
 
 <nav>
   <div class="container">
-    <div class="nav-name">anatoli<span>.</span>motion</div>
-    <a href="#contact" class="nav-cta">Get started</a>
+    <div class="nav-name"><img src="logo.png" alt="anatolimotion logo" class="nav-logo">anatolimotion</div>
+    <a href="https://calendly.com/anatoli-anatolimotion/15min" class="nav-cta">Book a 15-min intro</a>
   </div>
 </nav>
 
@@ -622,6 +619,10 @@ footer {
     <div class="hero-label">Motion design for agencies</div>
     <h1>Your clients need motion.<br>You need <em>someone reliable.</em></h1>
     <p class="hero-sub">Fixed-price motion design packages built for agencies. Explainers, social content, ad creatives, and ongoing support — fast turnaround, no surprises.</p>
+    <div class="hero-cta">
+      <a href="https://calendly.com/anatoli-anatolimotion/15min">Book a 15-min intro →</a>
+      <div class="hero-cta-sub">No pitch, no pressure. Just a quick chat to see if there's a fit.</div>
+    </div>
     <div class="hero-stats">
       <div>
         <div class="stat-num">10+</div>
@@ -701,7 +702,6 @@ footer {
         <div class="pkg-tagline">Get moving</div>
         <div class="pkg-price-row">
           <span class="pkg-price">$750</span>
-          <span class="pkg-compare">$1,500+</span>
         </div>
         <div class="pkg-delivery">5 business days</div>
         <hr class="pkg-divider">
@@ -715,7 +715,7 @@ footer {
           <div class="pkg-item">1 revision round</div>
         </div>
         <div class="pkg-bottom">
-          <a href="#contact" class="pkg-btn pkg-btn-outline">Get started</a>
+          <a href="https://calendly.com/anatoli-anatolimotion/15min" class="pkg-btn pkg-btn-outline">Book a call →</a>
         </div>
       </div>
 
@@ -725,7 +725,6 @@ footer {
         <div class="pkg-tagline">Campaign-ready</div>
         <div class="pkg-price-row">
           <span class="pkg-price">$1,800</span>
-          <span class="pkg-compare">$4,000+</span>
         </div>
         <div class="pkg-delivery">10 business days</div>
         <hr class="pkg-divider">
@@ -739,7 +738,7 @@ footer {
           <div class="pkg-item">2 revision rounds</div>
         </div>
         <div class="pkg-bottom">
-          <a href="#contact" class="pkg-btn pkg-btn-fill">Get started</a>
+          <a href="https://calendly.com/anatoli-anatolimotion/15min" class="pkg-btn pkg-btn-fill">Book a call →</a>
         </div>
       </div>
 
@@ -748,7 +747,6 @@ footer {
         <div class="pkg-tagline">Launch or rebrand</div>
         <div class="pkg-price-row">
           <span class="pkg-price">$3,500</span>
-          <span class="pkg-compare">$7,000+</span>
         </div>
         <div class="pkg-delivery">2–3 weeks</div>
         <hr class="pkg-divider">
@@ -764,7 +762,7 @@ footer {
           <div class="pkg-item">3 revision rounds</div>
         </div>
         <div class="pkg-bottom">
-          <a href="#contact" class="pkg-btn pkg-btn-outline">Get started</a>
+          <a href="https://calendly.com/anatoli-anatolimotion/15min" class="pkg-btn pkg-btn-outline">Book a call →</a>
         </div>
       </div>
 
@@ -780,7 +778,7 @@ footer {
           <span class="ret-per">/month</span>
         </div>
         <div class="ret-note">A part-time motion designer costs $4,000–6,000/mo.</div>
-        <a href="#contact" class="ret-cta">Start a retainer</a>
+        <a href="https://calendly.com/anatoli-anatolimotion/15min" class="ret-cta">Book a call →</a>
       </div>
       <div class="ret-perks">
         <div class="perk">
@@ -817,7 +815,6 @@ footer {
       </div>
       <div>
         <div class="about-photo">
-          <!-- Replace with: <img src="your-photo.jpg" alt="Anatoli"> -->
           <img src="WebsiteImage.png" alt="Anatoli">
         </div>
       </div>
@@ -825,12 +822,13 @@ footer {
   </div>
 </section>
 
-<section class="final-cta" id="contact">
+<section class="final-cta">
   <div class="container">
+    <div class="cta-spots">Currently taking on 2 new agency partners</div>
     <h2>Let's make something move.</h2>
-    <p>Send a quick message about your project. I'll reply same day with next steps.</p>
-    <a href="mailto:hello@yourdomain.com" class="cta-btn">hello@yourdomain.com</a>
-    <div class="cta-sub">Or message me on <a href="#" style="color:var(--accent);text-decoration:none">LinkedIn</a></div>
+    <p>15 minutes. No pitch, no pressure. Just a quick conversation to see if I'm the right fit for your agency.</p>
+    <a href="https://calendly.com/anatoli-anatolimotion/15min" class="cta-btn">Book a 15-min intro →</a>
+    <div class="cta-sub">Free. No commitment. Worst case, you'll have a motion designer in your contacts.</div>
   </div>
 </section>
 
