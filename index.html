@@ -4,25 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anatoli — Motion Design for Agencies</title>
-<meta name="description" content="Fixed-price motion design packages for agencies. Explainers, social content, ad creatives — fast turnaround, no surprises.">
-
-<!-- Favicon -->
+<meta name="description" content="Fixed-price motion design packages for agencies. Explainers, social content, ad creatives, Lottie animations — fast turnaround, no surprises.">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
-
-<!-- Open Graph (Facebook, LinkedIn, Slack, iMessage) -->
 <meta property="og:title" content="Anatoli — Motion Design for Agencies">
-<meta property="og:description" content="Your clients need motion. You need someone reliable. Fixed-price packages from $750. Fast turnaround, source files included.">
+<meta property="og:description" content="Your clients need motion. You need someone reliable. Fixed-price packages from $400. Fast turnaround, source files included.">
 <meta property="og:image" content="https://anatolimotion.com/og-image.png">
 <meta property="og:url" content="https://anatolimotion.com">
 <meta property="og:type" content="website">
-
-<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Anatoli — Motion Design for Agencies">
-<meta name="twitter:description" content="Your clients need motion. You need someone reliable. Fixed-price packages from $750.">
+<meta name="twitter:description" content="Your clients need motion. You need someone reliable. Fixed-price packages from $400.">
 <meta name="twitter:image" content="https://anatolimotion.com/og-image.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -42,11 +35,8 @@
   --font: 'DM Sans', sans-serif;
   --mono: 'Space Mono', monospace;
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: var(--font);
   background: var(--bg);
@@ -55,10 +45,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
 ::selection { background: var(--accent); color: var(--bg); }
-
-/* Grain overlay */
 body::after {
   content: '';
   position: fixed;
@@ -67,261 +54,108 @@ body::after {
   pointer-events: none;
   z-index: 9999;
 }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* NAV */
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 20px 0;
   background: rgba(10,10,10,0.8);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }
-nav .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav-name {
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: -0.3px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.nav-logo {
-  height: 24px;
-  width: auto;
-}
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-name { font-weight: 500; font-size: 15px; letter-spacing: -0.3px; display: flex; align-items: center; gap: 8px; }
+.nav-logo { height: 24px; width: auto; }
 .nav-cta {
-  font-size: 13px;
-  color: var(--bg);
-  background: var(--accent);
-  padding: 8px 20px;
-  border-radius: 100px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: transform 0.2s, opacity 0.2s;
+  font-size: 13px; color: var(--bg); background: var(--accent);
+  padding: 8px 20px; border-radius: 100px; text-decoration: none;
+  font-weight: 500; transition: transform 0.2s, opacity 0.2s;
 }
 .nav-cta:hover { transform: scale(1.03); opacity: 0.9; }
 
-/* HERO */
-.hero {
-  padding: 160px 0 100px;
-  position: relative;
-}
+.hero { padding: 160px 0 100px; position: relative; }
 .hero-label {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.2s;
+  font-family: var(--mono); font-size: 12px; color: var(--accent);
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px;
+  opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
 }
 .hero h1 {
-  font-size: clamp(36px, 5.5vw, 64px);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -2px;
-  max-width: 700px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.4s;
+  font-size: clamp(36px, 5.5vw, 64px); font-weight: 500;
+  line-height: 1.1; letter-spacing: -2px; max-width: 700px;
+  opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s;
 }
-.hero h1 em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--text-muted);
-}
+.hero h1 em { font-style: italic; font-weight: 300; color: var(--text-muted); }
 .hero-sub {
-  font-size: 18px;
-  color: var(--text-muted);
-  max-width: 520px;
-  margin-top: 28px;
-  line-height: 1.7;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.6s;
+  font-size: 18px; color: var(--text-muted); max-width: 520px;
+  margin-top: 28px; line-height: 1.7;
+  opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s;
 }
-.hero-cta {
-  margin-top: 36px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.7s;
-}
+.hero-cta { margin-top: 36px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.7s; }
 .hero-cta a {
-  display: inline-block;
-  padding: 14px 32px;
-  background: var(--accent);
-  color: var(--bg);
-  border-radius: 100px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  transition: transform 0.2s;
+  display: inline-block; padding: 14px 32px; background: var(--accent);
+  color: var(--bg); border-radius: 100px; text-decoration: none;
+  font-weight: 600; font-size: 15px; transition: transform 0.2s;
 }
 .hero-cta a:hover { transform: scale(1.03); }
-.hero-cta-sub {
-  font-size: 12px;
-  color: var(--text-dim);
-  margin-top: 10px;
-}
-.hero-stats {
-  display: flex;
-  gap: 48px;
-  margin-top: 56px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.8s;
-}
-.stat-num {
-  font-family: var(--mono);
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--accent);
-}
-.stat-label {
-  font-size: 13px;
-  color: var(--text-dim);
-  margin-top: 4px;
-}
+.hero-cta-sub { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
 
-/* SHOWREEL */
-.reel {
-  padding: 20px 0 80px;
-}
+.reel { padding: 20px 0 80px; }
 .reel-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--bg2);
+  position: relative; width: 100%; aspect-ratio: 16/9;
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border); background: var(--bg2);
 }
-.reel-wrapper iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+.reel-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 .reel-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  margin-top: 48px;
-  margin-bottom: 12px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--text-dim); margin-top: 48px; margin-bottom: 12px;
 }
 
-/* ABOUT PHOTO */
-.about-photo {
-  width: 100%;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-}
-.about-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* SECTION TITLES */
 .section-tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+  font-family: var(--mono); font-size: 11px; color: var(--accent);
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px;
 }
 .section-title {
-  font-size: clamp(28px, 3.5vw, 40px);
-  font-weight: 500;
-  letter-spacing: -1px;
-  margin-bottom: 16px;
+  font-size: clamp(28px, 3.5vw, 40px); font-weight: 500;
+  letter-spacing: -1px; margin-bottom: 16px;
 }
-.section-desc {
-  font-size: 16px;
-  color: var(--text-muted);
-  max-width: 560px;
-  line-height: 1.7;
+.section-desc { font-size: 16px; color: var(--text-muted); max-width: 560px; line-height: 1.7; }
+
+.services { padding: 80px 0; border-top: 1px solid var(--border); }
+.services-groups {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 16px; margin-top: 56px;
+}
+.service-group {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 28px 24px;
+  transition: border-color 0.3s;
+}
+.service-group:hover { border-color: var(--border-hover); }
+.service-group-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.service-group h3 { font-size: 18px; font-weight: 500; margin-bottom: 16px; }
+.service-list { list-style: none; }
+.service-list li {
+  font-size: 14px; color: var(--text-muted); padding: 5px 0;
+  display: flex; align-items: center; gap: 10px;
+}
+.service-list li::before {
+  content: ''; width: 4px; height: 4px; min-width: 4px;
+  border-radius: 50%; background: var(--text-dim);
 }
 
-/* WHAT YOU GET */
-.services {
-  padding: 80px 0;
-  border-top: 1px solid var(--border);
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  margin-top: 56px;
-}
-.service-card {
-  background: var(--bg2);
-  padding: 32px 28px;
-  transition: background 0.3s;
-}
-.service-card:hover { background: var(--bg3); }
-.service-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: var(--accent-dim);
-  border: 1px solid var(--accent-mid);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  font-size: 16px;
-}
-.service-card h3 {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-.service-card p {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* PACKAGES */
-.packages {
-  padding: 100px 0;
-  border-top: 1px solid var(--border);
-}
+.packages { padding: 100px 0; border-top: 1px solid var(--border); }
 .pkg-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 56px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-top: 56px;
 }
 .pkg {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.3s;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px 28px;
+  display: flex; flex-direction: column; transition: border-color 0.3s;
   position: relative;
 }
 .pkg:hover { border-color: var(--border-hover); }
@@ -330,275 +164,147 @@ nav .container {
   background: linear-gradient(180deg, rgba(196,255,54,0.03) 0%, var(--bg2) 40%);
 }
 .pkg-badge {
-  position: absolute;
-  top: -10px;
-  left: 28px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: var(--accent);
-  color: var(--bg);
-  padding: 3px 12px;
-  border-radius: 100px;
-  font-weight: 700;
+  position: absolute; top: -10px; left: 28px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1px;
+  text-transform: uppercase; background: var(--accent); color: var(--bg);
+  padding: 3px 12px; border-radius: 100px; font-weight: 700;
 }
-.pkg-name {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 2px;
-}
-.pkg-tagline {
-  font-size: 13px;
-  color: var(--text-dim);
-  margin-bottom: 20px;
-}
-.pkg-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin-bottom: 4px;
-}
-.pkg-price {
-  font-family: var(--mono);
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
+.pkg-name { font-size: 20px; font-weight: 500; margin-bottom: 2px; }
+.pkg-tagline { font-size: 13px; color: var(--text-dim); margin-bottom: 20px; line-height: 1.5; }
+.pkg-price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.pkg-price { font-family: var(--mono); font-size: 32px; font-weight: 700; letter-spacing: -1px; }
 .pkg-delivery {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--text-dim);
-  letter-spacing: 0.5px;
-  margin-bottom: 24px;
+  font-family: var(--mono); font-size: 11px; color: var(--text-dim);
+  letter-spacing: 0.5px; margin-bottom: 24px;
 }
-.pkg-divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin-bottom: 24px;
-}
+.pkg-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 24px; }
 .pkg-items { flex: 1; }
 .pkg-item {
-  font-size: 14px;
-  color: var(--text);
-  padding: 6px 0;
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+  font-size: 14px; color: var(--text); padding: 6px 0;
+  display: flex; align-items: baseline; gap: 10px;
 }
 .pkg-item::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  min-width: 4px;
-  border-radius: 50%;
-  background: var(--accent);
-  margin-top: 7px;
+  content: ''; width: 4px; height: 4px; min-width: 4px;
+  border-radius: 50%; background: var(--accent); margin-top: 7px;
 }
-.pkg-item-sub {
-  font-size: 12px;
-  color: var(--text-dim);
-  padding: 0 0 6px 14px;
-}
-.pkg-bottom {
-  margin-top: 28px;
-}
-.pkg-btn {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding: 12px;
+.pkg-item-sub { font-size: 12px; color: var(--text-dim); padding: 0 0 6px 14px; }
+.pkg-total {
+  margin-top: 16px; padding: 12px 16px;
+  background: var(--accent-dim); border: 1px solid var(--accent-mid);
   border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: transform 0.2s, opacity 0.2s;
-  cursor: pointer;
+}
+.pkg-total-label { font-size: 11px; color: var(--accent); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+.pkg-total-val { font-size: 14px; color: var(--text); margin-top: 2px; }
+.pkg-bottom { margin-top: 28px; }
+.pkg-btn {
+  display: block; width: 100%; text-align: center; padding: 12px;
+  border-radius: 8px; font-size: 14px; font-weight: 500;
+  text-decoration: none; transition: transform 0.2s, opacity 0.2s; cursor: pointer;
 }
 .pkg-btn:hover { transform: scale(1.02); }
-.pkg-btn-outline {
-  color: var(--text);
-  border: 1px solid var(--border-hover);
-  background: transparent;
-}
+.pkg-btn-outline { color: var(--text); border: 1px solid var(--border-hover); background: transparent; }
 .pkg-btn-outline:hover { border-color: var(--text-dim); }
-.pkg-btn-fill {
-  color: var(--bg);
-  background: var(--accent);
-  border: none;
-}
+.pkg-btn-fill { color: var(--bg); background: var(--accent); border: none; }
 .pkg-btn-fill:hover { opacity: 0.9; }
 
-/* RETAINER */
 .retainer {
-  margin-top: 16px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 36px 36px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
-  align-items: center;
+  margin-top: 16px; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 36px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start;
 }
-.ret-left {}
-.ret-name {
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-.ret-tagline {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  max-width: 400px;
-}
-.ret-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 6px;
-}
-.ret-price {
-  font-family: var(--mono);
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-.ret-per {
-  font-size: 14px;
-  color: var(--text-dim);
-}
-.ret-note {
-  font-size: 12px;
-  color: var(--text-dim);
-  font-style: italic;
-  margin-bottom: 24px;
-}
+.ret-name { font-size: 24px; font-weight: 500; margin-bottom: 4px; }
+.ret-tagline { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; max-width: 400px; }
+.ret-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.ret-price { font-family: var(--mono); font-size: 36px; font-weight: 700; letter-spacing: -1px; }
+.ret-per { font-size: 14px; color: var(--text-dim); }
+.ret-note { font-size: 12px; color: var(--text-dim); font-style: italic; margin-bottom: 24px; }
 .ret-cta {
-  display: inline-block;
-  padding: 12px 32px;
-  background: var(--accent);
-  color: var(--bg);
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  transition: transform 0.2s;
+  display: inline-block; padding: 12px 32px; background: var(--accent);
+  color: var(--bg); border-radius: 8px; text-decoration: none;
+  font-weight: 500; font-size: 14px; transition: transform 0.2s;
 }
 .ret-cta:hover { transform: scale(1.03); }
-.ret-perks {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.ret-perks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.perk { background: var(--bg3); border-radius: 8px; padding: 16px; }
+.perk-val { font-family: var(--mono); font-size: 18px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+.perk-label { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+.ret-example { background: var(--bg3); border-radius: 8px; padding: 16px; }
+.ret-example-label {
+  font-size: 11px; font-weight: 500; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;
 }
-.perk {
-  background: var(--bg3);
-  border-radius: 8px;
-  padding: 16px;
+.ret-example-list { list-style: none; }
+.ret-example-list li {
+  font-size: 13px; color: var(--text-muted); padding: 3px 0;
+  display: flex; align-items: center; gap: 8px;
 }
-.perk-val {
-  font-family: var(--mono);
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 4px;
-}
-.perk-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.4;
+.ret-example-list li::before {
+  content: ''; width: 3px; height: 3px; min-width: 3px;
+  border-radius: 50%; background: var(--text-dim);
 }
 
-/* ABOUT */
-.about {
-  padding: 100px 0;
-  border-top: 1px solid var(--border);
-}
+.about { padding: 100px 0; border-top: 1px solid var(--border); }
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  margin-top: 48px;
-  align-items: start;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; margin-top: 48px; align-items: start;
 }
-.about-text {
-  font-size: 16px;
-  color: var(--text-muted);
-  line-height: 1.8;
-}
+.about-text { font-size: 16px; color: var(--text-muted); line-height: 1.8; }
 .about-text p + p { margin-top: 20px; }
 .about-text strong { color: var(--text); font-weight: 500; }
+.about-photo {
+  width: 100%; border-radius: var(--radius); overflow: hidden;
+  background: var(--bg3); border: 1px solid var(--border);
+}
+.about-photo img { width: 100%; height: auto; display: block; }
 
-/* CTA */
-.final-cta {
-  padding: 100px 0 120px;
-  text-align: center;
-  border-top: 1px solid var(--border);
+.faq { padding: 80px 0; border-top: 1px solid var(--border); }
+.faq-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 24px; margin-top: 48px;
 }
-.final-cta h2 {
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 500;
-  letter-spacing: -1.5px;
-  margin-bottom: 16px;
+.faq-item { }
+.faq-q {
+  font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px;
 }
+.faq-a {
+  font-size: 14px; color: var(--text-muted); line-height: 1.7;
+}
+
+.final-cta { padding: 100px 0 120px; text-align: center; border-top: 1px solid var(--border); }
+.final-cta h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 500; letter-spacing: -1.5px; margin-bottom: 16px; }
 .final-cta p {
-  font-size: 16px;
-  color: var(--text-muted);
-  margin-bottom: 36px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 16px; color: var(--text-muted); margin-bottom: 36px;
+  max-width: 480px; margin-left: auto; margin-right: auto;
 }
 .cta-btn {
-  display: inline-block;
-  padding: 16px 40px;
-  background: var(--accent);
-  color: var(--bg);
-  border-radius: 100px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  transition: transform 0.2s;
+  display: inline-block; padding: 16px 40px; background: var(--accent);
+  color: var(--bg); border-radius: 100px; text-decoration: none;
+  font-weight: 600; font-size: 16px; transition: transform 0.2s;
 }
 .cta-btn:hover { transform: scale(1.04); }
-.cta-sub {
-  font-size: 12px;
-  color: var(--text-dim);
-  margin-top: 14px;
-}
+.cta-sub { font-size: 12px; color: var(--text-dim); margin-top: 14px; }
 .cta-spots {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent);
-  letter-spacing: 0.5px;
-  margin-bottom: 20px;
+  font-family: var(--mono); font-size: 11px; color: var(--accent);
+  letter-spacing: 0.5px; margin-bottom: 20px;
 }
 
-/* FOOTER */
 footer {
-  padding: 32px 0;
-  border-top: 1px solid var(--border);
-  text-align: center;
-  font-size: 12px;
-  color: var(--text-dim);
+  padding: 32px 0; border-top: 1px solid var(--border);
+  text-align: center; font-size: 12px; color: var(--text-dim);
 }
 
-/* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
-  .hero-stats { flex-direction: column; gap: 24px; }
-  .services-grid { grid-template-columns: 1fr; }
+  .services-groups { grid-template-columns: 1fr; }
   .pkg-grid { grid-template-columns: 1fr; }
   .retainer { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .ret-perks { grid-template-columns: 1fr 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -615,24 +321,10 @@ footer {
   <div class="container">
     <div class="hero-label">Motion design for agencies</div>
     <h1>Your clients need motion.<br>You need <em>someone reliable.</em></h1>
-    <p class="hero-sub">Fixed-price motion design packages built for agencies. Explainers, social content, ad creatives, and ongoing support — fast turnaround, no surprises.</p>
+    <p class="hero-sub">Fixed-price motion design packages built for agencies. Explainers, social content, ad creatives, web animations — fast turnaround, no surprises.</p>
     <div class="hero-cta">
       <a href="https://calendly.com/anatoli-anatolimotion/15min">Book a 15-min intro →</a>
       <div class="hero-cta-sub">No pitch, no pressure. Just a quick chat to see if there's a fit.</div>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Years in motion design</div>
-      </div>
-      <div>
-        <div class="stat-num">1000+</div>
-        <div class="stat-label">Videos delivered</div>
-      </div>
-      <div>
-        <div class="stat-num">5 days</div>
-        <div class="stat-label">Fastest turnaround</div>
-      </div>
     </div>
   </div>
 </section>
@@ -649,38 +341,47 @@ footer {
 <section class="services">
   <div class="container">
     <div class="section-tag">What you get</div>
-    <h2 class="section-title">Motion that works as hard as your team.</h2>
-    <p class="section-desc">Everything your clients ask for — without hiring an animator or managing a production house.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">▶</div>
-        <h3>Explainer & product videos</h3>
-        <p>30–60s animated explainers that make complex products feel simple. Storyboard through final delivery.</p>
+    <h2 class="section-title">Every motion deliverable your clients ask for. One person to call.</h2>
+    <div class="services-groups">
+      <div class="service-group">
+        <div class="service-group-label">For websites</div>
+        <h3>Lottie, micro-interactions & hero motion</h3>
+        <ul class="service-list">
+          <li>Lottie animations for web & app</li>
+          <li>Animated icons and illustrations</li>
+          <li>Scroll-triggered motion and hero effects</li>
+          <li>Loading states and UI micro-interactions</li>
+        </ul>
       </div>
-      <div class="service-card">
-        <div class="service-icon">◈</div>
-        <h3>Social motion content</h3>
-        <p>Animated posts, stories, reels, and GIFs. Platform-native formats that stop the scroll.</p>
+      <div class="service-group">
+        <div class="service-group-label">For brand</div>
+        <h3>Identity, logo & presentations</h3>
+        <ul class="service-list">
+          <li>Logo reveals and brand bumpers</li>
+          <li>Animated pitch decks and slides</li>
+          <li>Motion style guides and templates</li>
+          <li>Brand intro/outro sequences</li>
+        </ul>
       </div>
-      <div class="service-card">
-        <div class="service-icon">⚡</div>
-        <h3>Ad creatives</h3>
-        <p>Performance video ads for Meta and TikTok. Hook variants, modular structure, built for testing.</p>
+      <div class="service-group">
+        <div class="service-group-label">For campaigns</div>
+        <h3>Ads, social & email</h3>
+        <ul class="service-list">
+          <li>Performance video ads (Meta, TikTok)</li>
+          <li>Hook and CTA variations for testing</li>
+          <li>Animated social posts, stories, reels</li>
+          <li>Email GIFs and animated headers</li>
+        </ul>
       </div>
-      <div class="service-card">
-        <div class="service-icon">◎</div>
-        <h3>Logo & brand animation</h3>
-        <p>Logo reveals, transitions, bumpers. Motion identity that makes a brand feel alive.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">▤</div>
-        <h3>UI & product animation</h3>
-        <p>App walkthroughs, onboarding flows, micro-interactions. Making interfaces feel polished.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">◉</div>
-        <h3>Data & infographic animation</h3>
-        <p>Kinetic data visualization, animated reports, numbers that tell a story.</p>
+      <div class="service-group">
+        <div class="service-group-label">For content</div>
+        <h3>Video editing & post-production</h3>
+        <ul class="service-list">
+          <li>Video editing with motion overlays</li>
+          <li>Animated titles and lower thirds</li>
+          <li>Data visualization and infographics</li>
+          <li>Explainer and product walkthrough videos</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -690,24 +391,21 @@ footer {
   <div class="container">
     <div class="section-tag">Packages</div>
     <h2 class="section-title">Fixed price. No scope creep. No hourly math.</h2>
-    <p class="section-desc">Pick a package, send a brief, get polished work back. Every package includes source files and is priced so your agency still has healthy margin.</p>
-
+    <p class="section-desc">Every package includes source files and is priced so you keep healthy margin when you pass it through to your client.</p>
     <div class="pkg-grid">
 
       <div class="pkg">
-        <div class="pkg-name">Spark</div>
-        <div class="pkg-tagline">Get moving</div>
+        <div class="pkg-name">Quick Hit</div>
+        <div class="pkg-tagline">Zero-risk way to try working together. One deliverable, done fast.</div>
         <div class="pkg-price-row">
-          <span class="pkg-price">$750</span>
+          <span class="pkg-price">$400</span>
         </div>
-        <div class="pkg-delivery">5 business days</div>
+        <div class="pkg-delivery">3 business days</div>
         <hr class="pkg-divider">
         <div class="pkg-items">
-          <div class="pkg-item">Logo animation (3–5s reveal)</div>
-          <div class="pkg-item-sub">MP4 + transparent MOV + GIF</div>
-          <div class="pkg-item">3 animated GIFs</div>
-          <div class="pkg-item-sub">Email, social, banner formats</div>
-          <div class="pkg-item">1 short social video (10–15s)</div>
+          <div class="pkg-item">Pick one:</div>
+          <div class="pkg-item-sub">→ 1 animated social clip (up to 15s)<br>→ 1 logo animation (3–5s reveal)<br>→ 3–5 animated GIFs (email or social)<br>→ 1 set of Lottie icons (up to 5)<br>→ 1 video edit with motion overlays (up to 60s raw)</div>
+          <div class="pkg-item">Platform-ready formats delivered</div>
           <div class="pkg-item">Source files included</div>
           <div class="pkg-item">1 revision round</div>
         </div>
@@ -718,21 +416,26 @@ footer {
 
       <div class="pkg featured">
         <div class="pkg-badge">Best value</div>
-        <div class="pkg-name">Launch</div>
-        <div class="pkg-tagline">Campaign-ready</div>
+        <div class="pkg-name">Campaign Pack</div>
+        <div class="pkg-tagline">Everything your client needs for a launch or campaign push — ready to post across every platform.</div>
         <div class="pkg-price-row">
-          <span class="pkg-price">$1,800</span>
+          <span class="pkg-price">$1,500</span>
         </div>
-        <div class="pkg-delivery">10 business days</div>
+        <div class="pkg-delivery">7 business days</div>
         <hr class="pkg-divider">
         <div class="pkg-items">
-          <div class="pkg-item">30–60s explainer or product clip</div>
-          <div class="pkg-item-sub">Storyboard, animation, sound design</div>
-          <div class="pkg-item">5 social motion assets (5–15s)</div>
-          <div class="pkg-item-sub">Posts, stories, reels mix</div>
-          <div class="pkg-item">3 platform resizes included</div>
+          <div class="pkg-item">3 motion pieces (15–30s each)</div>
+          <div class="pkg-item-sub">Ad creatives, social clips, product teasers — your mix</div>
+          <div class="pkg-item">Every piece resized for 3 platforms</div>
+          <div class="pkg-item-sub">Feed, story, landscape — 9 exports total</div>
+          <div class="pkg-item">2 hook variations per piece</div>
+          <div class="pkg-item-sub">Different openings for A/B testing</div>
           <div class="pkg-item">Source files included</div>
           <div class="pkg-item">2 revision rounds</div>
+        </div>
+        <div class="pkg-total">
+          <div class="pkg-total-label">Total deliverables</div>
+          <div class="pkg-total-val">Up to 15 ready-to-post assets from one brief</div>
         </div>
         <div class="pkg-bottom">
           <a href="https://calendly.com/anatoli-anatolimotion/15min" class="pkg-btn pkg-btn-fill">Book a call →</a>
@@ -740,21 +443,20 @@ footer {
       </div>
 
       <div class="pkg">
-        <div class="pkg-name">Full Motion Kit</div>
-        <div class="pkg-tagline">Launch or rebrand</div>
+        <div class="pkg-name">Hero Video</div>
+        <div class="pkg-tagline">One polished video your client can build their whole launch around.</div>
         <div class="pkg-price-row">
-          <span class="pkg-price">$3,500</span>
+          <span class="pkg-price">$3,000</span>
         </div>
-        <div class="pkg-delivery">2–3 weeks</div>
+        <div class="pkg-delivery">3 weeks</div>
         <hr class="pkg-divider">
         <div class="pkg-items">
-          <div class="pkg-item">60s hero explainer video</div>
-          <div class="pkg-item-sub">Script consult, storyboard, animation, sound</div>
-          <div class="pkg-item">3 ad creatives (15–30s)</div>
-          <div class="pkg-item-sub">Hook variants, Meta + TikTok formats</div>
-          <div class="pkg-item">5 social motion assets</div>
-          <div class="pkg-item">Motion style guide</div>
-          <div class="pkg-item-sub">Transitions, easing, color usage rules</div>
+          <div class="pkg-item">45–60s explainer or product video</div>
+          <div class="pkg-item-sub">Script consultation and storyboard with 2 direction options</div>
+          <div class="pkg-item">Full animation and sound design</div>
+          <div class="pkg-item">1 short cut-down included (15–30s)</div>
+          <div class="pkg-item-sub">Ready for social and ads — no extra charge</div>
+          <div class="pkg-item">Voiceover direction and sourcing</div>
           <div class="pkg-item">Source files included</div>
           <div class="pkg-item">3 revision rounds</div>
         </div>
@@ -771,32 +473,42 @@ footer {
         <div class="ret-name">Motion partner retainer</div>
         <div class="ret-tagline">Your motion design department — without the hire. Mix any deliverables monthly. Priority turnaround. Cancel anytime.</div>
         <div class="ret-price-row">
-          <span class="ret-price">$2,000</span>
+          <span class="ret-price">$2,500</span>
           <span class="ret-per">/month</span>
         </div>
         <div class="ret-note">A part-time motion designer costs $4,000–6,000/mo.</div>
         <a href="https://calendly.com/anatoli-anatolimotion/15min" class="ret-cta">Book a call →</a>
       </div>
-      <div class="ret-perks">
-        <div class="perk">
-          <div class="perk-val">~15h</div>
-          <div class="perk-label">Hours per month</div>
+      <div class="ret-right">
+        <div class="ret-perks">
+          <div class="perk">
+            <div class="perk-val">~15h</div>
+            <div class="perk-label">Hours per month</div>
+          </div>
+          <div class="perk">
+            <div class="perk-val">48h</div>
+            <div class="perk-label">Turnaround on small tasks</div>
+          </div>
+          <div class="perk">
+            <div class="perk-val">5h</div>
+            <div class="perk-label">Monthly rollover</div>
+          </div>
+          <div class="perk">
+            <div class="perk-val">∞</div>
+            <div class="perk-label">Flexibility — cancel anytime</div>
+          </div>
         </div>
-        <div class="perk">
-          <div class="perk-val">48h</div>
-          <div class="perk-label">Turnaround on small tasks</div>
-        </div>
-        <div class="perk">
-          <div class="perk-val">5h</div>
-          <div class="perk-label">Monthly rollover</div>
-        </div>
-        <div class="perk">
-          <div class="perk-val">∞</div>
-          <div class="perk-label">Flexibility — cancel anytime</div>
+        <div class="ret-example">
+          <div class="ret-example-label">A typical month might look like</div>
+          <ul class="ret-example-list">
+            <li>2 short video edits with motion overlays</li>
+            <li>1 social animation pack (3–5 assets)</li>
+            <li>1 ad creative with hook variations</li>
+            <li>A set of email GIFs or Lottie icons</li>
+          </ul>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -806,14 +518,47 @@ footer {
     <h2 class="section-title">Not a studio. Not a marketplace.<br>Just a really good motion designer.</h2>
     <div class="about-grid">
       <div class="about-text">
-        <p>I've spent over a decade making things move — <strong>explainer videos, product animations, ad creatives, social content, UI motion</strong>. I've worked agency-side and in-house, on teams of two and teams of twenty.</p>
+        <p>I've spent over a decade making things move — <strong>explainer videos, product animations, ad creatives, social content, Lottie animations, UI motion</strong>. I've worked agency-side and in-house, on teams of two and teams of twenty.</p>
         <p>Right now I work with a small number of agencies as their go-to motion person. You send a brief, I send back polished work. Fixed prices, fast turnaround, no project management overhead on your end.</p>
-        <p>I'm based in Europe, which means <strong>competitive rates without compromising quality</strong>. Your margin stays healthy. Your clients get work that looks like it came from a $10K studio.</p>
+        <p>I'm based in Europe, which means <strong>competitive rates without compromising quality</strong>. Your margin stays healthy.</p>
       </div>
       <div>
         <div class="about-photo">
           <img src="WebsiteImage.png" alt="Anatoli">
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title">Common questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">Can I present this as my agency's work?</div>
+        <div class="faq-a">Yes. Everything I deliver is yours to white-label. Your clients never need to know I exist. Most agencies mark up 50–100% and present the work as part of their own offering.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if the project doesn't fit a package?</div>
+        <div class="faq-a">Packages cover the most common requests. If you need something different — a custom animation, a hybrid project, a different scope — just tell me on our intro call and I'll send a flat-rate quote within 24 hours.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What about timezone and communication?</div>
+        <div class="faq-a">I'm CET (Central European Time) — that's full overlap with UK/EU and US East Coast mornings. I work async via email or Slack, and I reply the same business day. No meetings unless you want them.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I need more revisions?</div>
+        <div class="faq-a">Each package includes 1–3 rounds depending on scope. If you need more, additional rounds are $75 each. In practice, most projects are done in the included rounds.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What formats and files do I get?</div>
+        <div class="faq-a">Every project includes the final exports in whatever formats you need (MP4, MOV, GIF, Lottie JSON, etc.) plus the source files (After Effects, Illustrator). You own everything.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I get started?</div>
+        <div class="faq-a">Book a 15-minute intro call. We'll talk about what your agency needs, I'll recommend a starting point, and if there's a fit, I can usually start the same week.</div>
       </div>
     </div>
   </div>
